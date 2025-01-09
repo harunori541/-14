@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音声認識アプリ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .transcription, .history, .translated {
+            margin-top: 20px;
+            border: 1px solid #e1e1e1;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+        .history ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .history li {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #e1e1e1;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>翻訳アプリ</h1>
+        <button id="startButton" onclick="startRecognition()">音声認識開始</button>
+        <button id="stopButton" onclick="stopRecognition()" disabled>音声認識停止</button>
+        <div id="result" class="transcription">ここに音声認識結果が表示されます。</div>
+        <div id="translatedResult" class="translated">ここに翻訳結果が表示されます。</div>
+        <div class="history">
+            <h2>認識結果の履歴</h2>
+            <ul id="historyList"></ul>
+        </div>
+        <button onclick="speakText()">テキストを読み上げる</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
